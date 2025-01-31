@@ -1,17 +1,30 @@
-// .devcontainer/devcontainer.json
-
 {
     "name": "Python Dev Container",
     "build": {
         "dockerfile": "Dockerfile",
         "context": ".."
     },
-    "settings": {
-        "python.pythonPath": "/usr/local/bin/python",
-        "terminal.integrated.shell.linux": "/bin/bash"
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.pythonPath": "/usr/local/bin/python",
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.formatOnSave": true,
+                    "editor.tabSize": 4,
+                    "editor.insertSpaces": true,
+                    "editor.detectIndentation": false
+                }
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-azuretools.vscode-docker",
+                "ms-python.black-formatter" // Black フォーマッターを追加
+            ]
+        }
     },
-    "extensions": ["ms-python.python", "ms-azuretools.vscode-docker"],
     "forwardPorts": [],
     "postCreateCommand": "pip install --upgrade pip",
-    "remoteUser": "root" // デフォルトユーザーを root に設定
+    "remoteUser": "root"
 }
