@@ -1,0 +1,17 @@
+// .devcontainer/devcontainer.json
+
+{
+    "name": "Python Dev Container",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "settings": {
+        "python.pythonPath": "/usr/local/bin/python",
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": ["ms-python.python", "ms-azuretools.vscode-docker"],
+    "forwardPorts": [],
+    "postCreateCommand": "pip install --upgrade pip",
+    "remoteUser": "root" // デフォルトユーザーを root に設定
+}
